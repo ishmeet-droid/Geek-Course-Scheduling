@@ -31,4 +31,13 @@ public class User {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    @Override
+    public String toString() {
+
+        return "[" + this.id + " "
+                + this.userName + " " +
+                this.status + " " +
+                this.course + " " + " ]";
+    }
 }

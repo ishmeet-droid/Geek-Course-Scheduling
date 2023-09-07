@@ -9,17 +9,20 @@ public class AddCourse {
 
     private String[] commandsAndParams;
 
-    List<Course> courses;
+    private List<Course> courses;
 
     private String mess;
 
-    public AddCourse(String[] commandsAndParams) {
-        this.commandsAndParams = commandsAndParams;
-        this.courses = new ArrayList<>();
-        this.addCourseToList();
-    }
+    // public AddCourse(String[] commandsAndParams) {
+    //     this.commandsAndParams = commandsAndParams;
+    //     this.courses = new ArrayList<>();
+    //     this.addCourseToList();
+    // }
 
     public AddCourse() {
+        this.commandsAndParams = commandsAndParams;
+        this.courses = new ArrayList<>();
+        // this.addCourseToList();
     }
 
     public String getMess() {
@@ -32,7 +35,7 @@ public class AddCourse {
 
     
 
-    private void addCourseToList() {
+    public void addCourseToList(String[] commandsAndParams) {
 
         try{
             Course obj = returnsCourseObject(commandsAndParams);
