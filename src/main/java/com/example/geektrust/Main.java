@@ -17,7 +17,7 @@ public class Main {
         try {
             // the file to be opened for reading
             // FileInputStream fis = new FileInputStream(args[0]);
-            FileInputStream fis = new FileInputStream("C:\\Users\\ishme\\OneDrive\\Desktop\\java-maven-starter-kit\\sample_input\\input1.txt");
+            FileInputStream fis = new FileInputStream("C:\\Users\\ishme\\OneDrive\\Desktop\\java-maven-starter-kit\\sample_input\\input2.txt");
             Scanner sc = new Scanner(fis); // file to be scanned
             // returns true if there is another line to read
             while (sc.hasNextLine()) {

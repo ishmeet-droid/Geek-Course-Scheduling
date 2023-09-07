@@ -3,11 +3,13 @@ package com.example.geektrust.services;
 import java.util.List;
 
 import com.example.geektrust.models.Course;
+import com.example.geektrust.models.User;
 
 public class HandleCommands {
 
     private List<String> listOfCommands;
     private List<Course> courses;
+    private List<User> confirmedUsers;
 
     public HandleCommands(List<String> listOfCommands){
 
@@ -24,7 +26,7 @@ public class HandleCommands {
     public void operateCommands() {
 
          AddCourse addCourse = new AddCourse();
-         RegisterUser usersStatus = new RegisterUser();
+         UserService usersStatus = new UserService();
 
          for(String i : listOfCommands){
             
@@ -53,7 +55,19 @@ public class HandleCommands {
                     System.out.println(usersStatus.getMess());
                 break;
                 case "ALLOT":
-                            usersStatus.allotCourse(commandAndParams);
+                        confirmedUsers = usersStatus.allotCourse(commandAndParams);
+                        for(User user : confirmedUsers){
+                            System.out.println(user);
+                        }
+                break;
+                case "CANCEL":
+                       boolean isRemoved =   usersStatus.removeUser(commandAndParams);
+                       if(isRemoved){
+                        System.out.println(commandAndParams[1] + " " + "CANCEL_ACCEPTED");
+                       }
+                       else{
+                         System.out.println(commandAndParams[1] + " " + "CANCEL_REJECTED");
+                       }
                 break;
             }
 
