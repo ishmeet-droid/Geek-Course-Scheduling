@@ -35,9 +35,9 @@ public class User {
     @Override
     public String toString() {
 
-        return "[" + this.id + " "
+        return this.id + " "
                 + this.userName + " " +
                 this.status + " " +
-                this.course + " " + " ]";
+                this.course + " ";
     }
 }

@@ -60,12 +60,12 @@ public class Course {
     @Override
     public String toString() {
 
-        return "[" + this.id + " "
+        return  this.id + " "
                 + this.courseName + " " +
                 this.instructorName + " " +
                 this.date + " "
                 + this.minSlot
-                + " " + this.maxSlot + " ]";
+                + " " + this.maxSlot;
     }
 
 }
