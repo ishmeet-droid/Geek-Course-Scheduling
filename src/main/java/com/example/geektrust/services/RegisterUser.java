@@ -18,7 +18,7 @@ public class RegisterUser {
 
     private Map<String, User> users;
 
-    private String[] commandsAndParams;
+    // private String[] commandsAndParams;
 
     private String mess;
 
@@ -53,9 +53,9 @@ public class RegisterUser {
     //     this.addUsertoMap();
     // }
 
-    public void setCommandsAndParams(String[] commandsAndParams) {
-        this.commandsAndParams = commandsAndParams;
-    }
+    // public void setCommandsAndParams(String[] commandsAndParams) {
+    //     this.commandsAndParams = commandsAndParams;
+    // }
 
     public RegisterUser() {
 
@@ -70,10 +70,10 @@ public class RegisterUser {
         // this.addUsertoMap();
     }
 
-    public void addUsertoMap() {
+    public void addUsertoMap(String[] commandAndParams) {
 
         try{
-            User user = returnsUserObject(this.commandsAndParams);
+            User user = returnsUserObject(commandAndParams);
             users.put(user.getId(), user);
 
             this.mess = user.getId();
@@ -90,9 +90,9 @@ public class RegisterUser {
          User user = new User();
 
        
-        if (commandsAndParams.length == 3){
+        if (commandAndParams.length == 3){
             if (courseFreq.containsKey(commandAndParams[2])
-                && courseFreq.get(commandAndParams[2]) <= courseMap.get(commandAndParams[2]).getMaxSlot()) {
+                && courseFreq.get(commandAndParams[2]) < courseMap.get(commandAndParams[2]).getMaxSlot()) {
            
             String name = getUserName(commandAndParams[1]);
 

@@ -7,7 +7,7 @@ import com.example.geektrust.models.Course;
 
 public class AddCourse {
 
-    private String[] commandsAndParams;
+    // private String[] commandsAndParams;
 
     private List<Course> courses;
 
@@ -20,7 +20,7 @@ public class AddCourse {
     // }
 
     public AddCourse() {
-        this.commandsAndParams = commandsAndParams;
+        // this.commandsAndParams = commandsAndParams;
         this.courses = new ArrayList<>();
         // this.addCourseToList();
     }

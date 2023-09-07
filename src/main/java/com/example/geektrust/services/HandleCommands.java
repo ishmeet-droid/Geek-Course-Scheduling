@@ -48,8 +48,8 @@ public class HandleCommands {
                     // new RegisterUser(commandAndParams, this.courses).printRegisteredUser();
                     // System.out.println(new RegisterUser(commandAndParams, this.courses).getMess());
                     // usersStatus.setCourses(courses);
-                    usersStatus.setCommandsAndParams(commandAndParams);
-                    usersStatus.addUsertoMap();
+                    // usersStatus.setCommandsAndParams(commandAndParams);
+                    usersStatus.addUsertoMap(commandAndParams);
                     System.out.println(usersStatus.getMess());
                 break;
             }
