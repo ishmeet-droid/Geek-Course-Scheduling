@@ -52,6 +52,9 @@ public class HandleCommands {
                     usersStatus.addUsertoMap(commandAndParams);
                     System.out.println(usersStatus.getMess());
                 break;
+                case "ALLOT":
+                            usersStatus.allotCourse(commandAndParams);
+                break;
             }
 
         }

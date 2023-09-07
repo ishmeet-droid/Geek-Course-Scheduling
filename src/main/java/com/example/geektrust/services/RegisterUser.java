@@ -133,4 +133,7 @@ public class RegisterUser {
         }
     }
 
+    public void allotCourse(String[] commandAndParams) {
+    }
+
 }
