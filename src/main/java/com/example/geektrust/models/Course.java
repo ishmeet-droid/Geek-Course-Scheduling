@@ -63,9 +63,9 @@ public class Course {
         return  this.id + " "
                 + this.courseName + " " +
                 this.instructorName + " " +
-                this.date + " "
-                + this.minSlot
-                + " " + this.maxSlot;
+                this.date + " ";
     }
+
+   
 
 }

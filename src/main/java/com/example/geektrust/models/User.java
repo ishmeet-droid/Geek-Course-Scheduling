@@ -1,12 +1,19 @@
 package com.example.geektrust.models;
 
-public class User {
-    // REGISTER ANDY@GMAIL.COM OFFERING-JAVA-JAMES 
+public class User implements Comparable<User> {
+   
     private String id;
+    private String name;
     private String userName;
     private String status;
     private Course course;
 
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getId() {
         return id;
     }
@@ -37,7 +44,12 @@ public class User {
 
         return this.id + " "
                 + this.userName + " " +
-                this.status + " " +
-                this.course + " ";
+                " " + this.course + " " + this.status ;
+    }
+
+    @Override
+    public int compareTo(User o) {
+
+        return this.id.compareTo(o.getId());
     }
 }

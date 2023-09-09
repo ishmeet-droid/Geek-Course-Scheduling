@@ -1,6 +1,9 @@
 package com.example.geektrust.services;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 import com.example.geektrust.models.Course;
 import com.example.geektrust.models.User;
@@ -9,7 +12,7 @@ public class HandleCommands {
 
     private List<String> listOfCommands;
     private List<Course> courses;
-    private List<User> confirmedUsers;
+    private ArrayList<User> confirmedUsers;
 
     public HandleCommands(List<String> listOfCommands){
 
@@ -51,11 +54,20 @@ public class HandleCommands {
                     // System.out.println(new RegisterUser(commandAndParams, this.courses).getMess());
                     // usersStatus.setCourses(courses);
                     // usersStatus.setCommandsAndParams(commandAndParams);
-                    usersStatus.addUsertoMap(commandAndParams);
+                    boolean isAdded = usersStatus.addUsertoMap(commandAndParams);
+                    if(isAdded){
+
+                        System.out.println(usersStatus.getMess()+ " " + "ACCEPTED");
+                        
+                    }else{
+                        
                     System.out.println(usersStatus.getMess());
+                    }
                 break;
                 case "ALLOT":
                         confirmedUsers = usersStatus.allotCourse(commandAndParams);
+                        if(confirmedUsers!= null)
+                        Collections.sort(confirmedUsers);
                         for(User user : confirmedUsers){
                             System.out.println(user);
                         }

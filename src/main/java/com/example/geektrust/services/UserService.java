@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import com.example.geektrust.models.Course;
 import com.example.geektrust.models.User;
@@ -53,7 +54,7 @@ public class UserService {
         // this.addUsertoMap();
     }
 
-    public void addUsertoMap(String[] commandAndParams) {
+    public boolean addUsertoMap(String[] commandAndParams) {
 
         try {
             User user = returnsUserObject(commandAndParams);
@@ -61,11 +62,13 @@ public class UserService {
             users.add(user);
 
             this.mess = user.getId();
+            return true;
 
         } catch (RuntimeException e) {
             // System.out.println(e.getMessage());
             this.mess = e.getMessage();
         }
+        return false;
     }
 
     private User returnsUserObject(String[] commandAndParams) {
@@ -80,7 +83,7 @@ public class UserService {
 
                 user.setId("REG-COURSE-" + name + "-" + courseMap.get(commandAndParams[2]).getCourseName());
 
-                user.setUserName(name);
+                user.setUserName(commandAndParams[1]);
 
                 user.setCourse(courseMap.get(commandAndParams[2]));
 
@@ -116,8 +119,8 @@ public class UserService {
         // }
     }
 
-    public List<User> allotCourse(String[] commandAndParams) {
-        List<User> list = new ArrayList<>();
+    public ArrayList<User> allotCourse(String[] commandAndParams) {
+        ArrayList<User> list = new ArrayList<>();
         // for (Map.Entry<String, User> map : users.entrySet())
         for (User obj : users) {
 
@@ -125,6 +128,7 @@ public class UserService {
             // User updateUser = map.getValue();
 
             if (obj.getCourse().getId().equals(commandAndParams[1])) {
+                
                 obj.setStatus("CONFIRMED");
                 User updateUser = obj;
                 list.add(updateUser);
